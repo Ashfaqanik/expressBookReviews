@@ -23,7 +23,6 @@ const authenticatedUser = (username, password) => {
     return false;
   }
 };
-
 //only registered users can login
 regd_users.post("/login", (req, res) => {
   const username = req.body.username;
@@ -33,7 +32,6 @@ regd_users.post("/login", (req, res) => {
   if (!username || !password) {
     return res.status(404).json({ message: "Error logging in" });
   }
-
   // Authenticate user
   if (authenticatedUser(username, password)) {
     // Generate JWT access token
